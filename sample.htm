@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>TimeoutScheduler Sample</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="http://mabin359.github.io/TimeoutScheduler/javascripts/timeout_scheduler.js"></script>
+	<script type="text/javascript">
+var ANIMATION_TERM = 20;
+
+var DEFAULT_X = 10;
+var DEFAULT_Y = 120;
+
+function init(){
+	document.getElementById("box").style.left = DEFAULT_X;
+	document.getElementById("box").style.top = DEFAULT_Y;
+}
+
+function moveBox(){
+	var tmpTimeline = 0;
+	
+	for(var i = 0; i < 20; i++){
+		var tmpRunnableObject = new RunnableObject();
+		tmpRunnableObject.x = DEFAULT_X + (i * 10);
+		tmpRunnableObject.run = function(){
+			document.getElementById("box").style.left = this.x;
+		};
+		
+		TimeoutScheduler.addJob(tmpRunnableObject, (tmpTimeline += ANIMATION_TERM));
+	}
+	
+	for(var i = 0; i < 20; i++){
+		var tmpRunnableObject = new RunnableObject();
+		tmpRunnableObject.y = DEFAULT_Y + (i * 10);
+		tmpRunnableObject.run = function(){
+			document.getElementById("box").style.top = this.y;
+		};
+		
+		TimeoutScheduler.addJob(tmpRunnableObject, (tmpTimeline += ANIMATION_TERM));
+	}
+	
+	for(var i = 19; i >= 0; i--){
+		var tmpRunnableObject = new RunnableObject();
+		tmpRunnableObject.x = DEFAULT_X + (i * 10);
+		tmpRunnableObject.run = function(){
+			document.getElementById("box").style.left = this.x;
+		};
+		
+		TimeoutScheduler.addJob(tmpRunnableObject, (tmpTimeline += ANIMATION_TERM));
+	}
+	
+	for(var i = 19; i >= 0; i--){
+		var tmpRunnableObject = new RunnableObject();
+		tmpRunnableObject.y = DEFAULT_Y + (i * 10);
+		tmpRunnableObject.run = function(){
+			document.getElementById("box").style.top = this.y;
+		};
+		
+		TimeoutScheduler.addJob(tmpRunnableObject, (tmpTimeline += ANIMATION_TERM));
+	}
+}
+	</script>
+	<style>
+#box {
+	clear: both;
+	width: 100px;
+	height: 100px;
+	background-color: gray;
+	position: absolute;
+}
+
+.btn {
+	width: 100px;
+	height 16px;
+	font-size: 16px;
+	padding: 5px;
+	margin: 4px;
+	margin-left: 0px;
+	text-align: center; 
+	float: left;
+	background-color: #BBBBBB;
+}
+	</style>
+</head>
+<body onload="init()">
+<h1>TimeoutScheduler Sample</h1>
+<div class="btn" onclick="moveBox()">Move Box</div>
+<div id="box"></div>
+</body>
+</html>
