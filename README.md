@@ -1,7 +1,7 @@
-TimeoutScheduler
+TimeoutScheduler (JavaScript)
 ================
 
-Timeout Scheduler (JavaScript)
+Timeout Scheduler for invoke object
 
 Usage
 -----
