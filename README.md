@@ -1,7 +1,7 @@
-TimeoutScheduler
+TimeoutScheduler (JavaScript)
 ================
 
-Timeout Scheduler (JavaScript)
+Timeout Scheduler for invoke object
 
 Usage
 -----
@@ -19,4 +19,4 @@ loop{
 
 Sample
 ------
-http://mabin359.github.io/TimeoutScheduler/sample.htm
+http://mabin359.github.io/TimeoutSchedulerJS/sample.htm
